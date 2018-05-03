@@ -1,0 +1,23 @@
+﻿<Window x:Class="SuaSach"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="SuaSach" Height="311.264" Width="300" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid Width="295" Height="280">
+        <TextBlock HorizontalAlignment="Left" Margin="36,33,0,0" TextWrapping="Wrap" Text="Mã Sách:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tblMaSach" HorizontalAlignment="Left" Margin="128,33,0,0" TextWrapping="Wrap" Text="{Binding /MaSach}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,70,0,0" TextWrapping="Wrap" Text="Tên Sách:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbTenSach" HorizontalAlignment="Left" Height="25" Margin="128,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding /TenSach}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,109,0,0" TextWrapping="Wrap" Text="Thể Loại:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbTheLoai" HorizontalAlignment="Left" Height="25" Margin="128,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding /TheLoai}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,146,0,0" TextWrapping="Wrap" Text="Tác Giả:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbTacGia" HorizontalAlignment="Left" Height="25" Margin="128,142,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding /TacGia}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,182,0,0" TextWrapping="Wrap" Text="Đơn Giá" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbDonGia" HorizontalAlignment="Left" Height="25" Margin="128,178,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding /DonGia}"/>
+        <Button Content="Sửa" HorizontalAlignment="Left" Margin="113,222,0,0" VerticalAlignment="Top" Width="Auto" Click="Button_Click"/>
+
+    </Grid>
+</Window>

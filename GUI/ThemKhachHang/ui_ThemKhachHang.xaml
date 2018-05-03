@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ui_ThemKhachHang"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             xmlns:local="clr-namespace:GUI"
+             mc:Ignorable="d" Height="513" Width="595">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF3F1F1" Offset="0"/>
+                <GradientStop Color="#FFF5F1F1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" Margin="210,26,0,0" TextWrapping="Wrap" Text="Mã KH:" VerticalAlignment="Top"/>
+        <Label x:Name="lblMaKH" Content="adasdasd" Margin="263,21,192,462" Height="30"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,56,0,0" TextWrapping="Wrap" Text="Tên KH:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbTenKhachHang" HorizontalAlignment="Left" TabIndex="0" TextAlignment="Center" Height="25" Margin="93,55,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169
+                 ">
+            <!--<TextBox.Text>
+                <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:NonEmptyStringValidationRule  ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>-->
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="348,56,0,0" TextWrapping="Wrap" Text="SĐT:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbSDT" HorizontalAlignment="Left" TabIndex="1" TextAlignment="Center" Height="25" Margin="397,55,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
+        <TextBlock HorizontalAlignment="Left" Margin="348,86,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbEmail" HorizontalAlignment="Left" TabIndex="3" TextAlignment="Center" Height="25" Margin="397,82,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,86,0,0" TextWrapping="Wrap" Text="Địa Chỉ:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbDiaChi" HorizontalAlignment="Left" TabIndex="2" TextAlignment="Center" Height="25" Margin="93,82,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="169"/>
+        <DataGrid x:Name="dtgThemKhachHang" IsReadOnly="False" VerticalAlignment="Center" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="299" Margin="26,192,0,22" Width="540">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Width="90" Binding="{Binding STT}" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                <DataGridTextColumn Header="Mã KH" Width="90" Binding="{Binding MaKH}" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                <DataGridTextColumn Header="Tên KH" Width="90" Binding="{Binding TenKH}" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                <DataGridTextColumn Header="SĐT" Width="90" Binding="{Binding DienThoai}" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                <DataGridTextColumn Header="Địa Chỉ" Width="90" Binding="{Binding DiaChi}" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                <DataGridTextColumn Header="Email" Width="90" Binding="{Binding Email}" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnThem" Content="Thêm" HorizontalAlignment="Left" Margin="125,118,0,0" VerticalAlignment="Top" Width="75" Click="btnThem_Click"/>
+        <Button x:Name="btnXoa" Content="Xóa KH Vừa Thêm" HorizontalAlignment="Left" Margin="348,118,0,0" VerticalAlignment="Top" Width="Auto" Click="btnXoa_Click"/>
+        <Button x:Name="btnHoanThanhDiaChi" HorizontalAlignment="Left"  ToolTip="Hoàn thành địa chỉ" Margin="268,87,0,0" VerticalAlignment="Top" Width="25" Height="25" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Click="btnHoanThanhDiaChi_Click">
+            <materialDesign:PackIcon Kind="Plus"/>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="30,162,0,0" TextWrapping="Wrap" Text="Danh sách các khách hàng vừa thêm:" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>

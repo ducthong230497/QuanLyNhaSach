@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ui_SachTamXoa"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             xmlns:local="clr-namespace:GUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Height="513" Width="571.473" >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF3F1F1" Offset="0"/>
+                <GradientStop Color="#FFF5F1F1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid x:Name="dtgSachDaXoa" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="406" Margin="20,17,0,0" CanUserAddRows="False" VerticalAlignment="Top" Width="531" SelectedCellsChanged="dtgSachDaXoa_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã sách" Binding="{Binding MaSach}"/>
+                <DataGridTextColumn Header="Tên sách" Binding="{Binding TenSach}"/>
+                <DataGridTextColumn Header="Thể loại" Binding="{Binding TheLoai}"/>
+                <DataGridTextColumn Header="Tác giả" Binding="{Binding TacGia}"/>
+                <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}"/>
+                <DataGridTextColumn Header="Đơn giá (VNĐ)" Binding="{Binding DonGia}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <materialDesign:Badged Margin="20,456,0,0" Badge="{Binding ElementName=dtgSachDaXoa, Path=Items.Count}">
+            <Button x:Name="btnXemSachDaXoa" Content="Xem" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="btnXemSachDaXoa_Click"/>
+        </materialDesign:Badged>
+        <Button x:Name="btnKhoiPhuc" Content="Khôi phục" HorizontalAlignment="Left" Margin="214,456,0,0" VerticalAlignment="Top" Width="Auto" IsEnabled="False" Click="btnKhoiPhuc_Click"/>
+        <Button x:Name="btnKhoiPhucTatCa" Content="Khôi phục tất cả" HorizontalAlignment="Left" Margin="416,456,0,0" VerticalAlignment="Top" Width="Auto" IsEnabled="False" Click="btnKhoiPhucTatCa_Click"/>
+    </Grid>
+</UserControl>

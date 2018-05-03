@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="ui_TimKhachHang"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             xmlns:local="clr-namespace:GUI"
+             mc:Ignorable="d" Width="577.302" Height="513">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF3F1F1" Offset="0"/>
+                <GradientStop Color="#FFF5F1F1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid ItemsSource="{Binding listKhachHang}" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" x:Name="dtgTimKH" HorizontalAlignment="Left" Height="331" Margin="34,168,0,0" VerticalAlignment="Top" Width="503" AreRowDetailsFrozen="True" SelectionChanged="dtgTimKH_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã KH" Binding="{Binding MaKhachHang}"/>
+                <DataGridTextColumn Header="Tên Khách Hàng" Binding="{Binding HoTenKhachHang}"/>
+                <DataGridTextColumn Header="Địa Chỉ" Binding="{Binding DiaChi}"/>
+                <DataGridTextColumn Header="Điện Thoại" Binding="{Binding DienThoai}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Số Tiền Nợ" Binding="{Binding SoTienNo}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Left" Margin="57,26,0,0" TextWrapping="Wrap" Text="Mã KH:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbMaKhachHang" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="122,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txbMaKhachHang_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,56,0,0" TextWrapping="Wrap" Text="SĐT:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbSDT" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="122,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="327,26,0,0" TextWrapping="Wrap" Text="Tên KH:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbTenKhachHang" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="392,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132"/>
+        <TextBlock HorizontalAlignment="Left" Margin="327,56,0,0" TextWrapping="Wrap" Text="Địa Chỉ:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbDiaChi" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="392,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132"/>
+
+        <materialDesign:Badged Margin="75,121,0,0" Badge="{Binding ElementName=dtgTimKH, Path=Items.Count}">
+            <Button x:Name="btnTimKH" Content="Tìm KH" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Click="btnTimKH_Click"/>
+        </materialDesign:Badged>
+        <Button x:Name="btnSuaKH" Content="Sửa KH" HorizontalAlignment="Left" Margin="241,121,0,0" VerticalAlignment="Top" Width="Auto" IsEnabled="False" Click="btnSuaKH_Click"/>
+        <Button x:Name="btnXoaKH" Content="Xóa KH" HorizontalAlignment="Left" Margin="411,121,0,0" VerticalAlignment="Top" Width="Auto" IsEnabled="False" Click="btnXoaKH_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,86,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbEmail" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="122,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="327,86,0,0" TextWrapping="Wrap" Text="Số nợ:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbSoNoTu" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="392,82,0,0" TextWrapping="NoWrap" Text="0" VerticalAlignment="Top" Width="53"/>
+        <ListView x:Name="lsvMaKH" HorizontalAlignment="Left" Height="137" Margin="236,-31,0,0" Visibility="Visible" VerticalAlignment="Top" Width="100" Background="White" SelectionChanged="lsvMaKH_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" Margin="448,86,0,0" TextWrapping="Wrap" Text="đến" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbSoNoDen" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="471,82,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="53"/>
+
+
+    </Grid>
+</UserControl>

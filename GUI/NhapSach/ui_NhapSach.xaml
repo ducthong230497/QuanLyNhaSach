@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="ui_NhapSach"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:wpfExample="clr-namespace:MaterialDesignColors.WpfExample"
+             xmlns:domain="clr-namespace:MaterialDesignDemo.Domain"
+             
+             xmlns:local="clr-namespace:GUI"
+             mc:Ignorable="d" Height="427" Width="779">
+    <Grid Height="427" VerticalAlignment="Top">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF3F1F1" Offset="0.003"/>
+                <GradientStop Color="#FFF5F1F1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="Số Lượng Nhập:" HorizontalAlignment="Left" Margin="576,74,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="txbSoLuongNhap" HorizontalAlignment="Left" Height="25" Margin="682,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" FontFamily="Calibri" FontSize="14" TabIndex="1"/>
+        <DataGrid x:Name="dtgNhapSach" HorizontalAlignment="Left" Height="195" Margin="24,162,0,0" VerticalAlignment="Top" Width="742" CanUserAddRows="False" RowDetailsVisibilityMode="Visible" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Width="50" Binding="{Binding STT}"/>
+                <DataGridTextColumn Header="Mã Sách" Width="80" Binding="{Binding MaSach}"/>
+                <DataGridTextColumn Header="Tên Sách" Width="106" Binding="{Binding TenSach}"/>
+                <DataGridTextColumn Header="Tác Giả" Width="106" Binding="{Binding TacGia}"/>
+                <DataGridTextColumn Header="Số Lượng Tồn Cũ" Width="120" Binding="{Binding SoLuongTonCu}"/>
+                <DataGridTextColumn Header="Số Lượng Nhập" Width="106" Binding="{Binding SoLuongNhap}"/>
+                <DataGridTextColumn Header="Số Lượng Tồn Mới" Width="125" Binding="{Binding SoLuongTonMoi}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="" HorizontalAlignment="Left" Margin="238,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Số lượng nhập tối thiểu: 150" Foreground="Red" HorizontalAlignment="Left" Margin="24,74,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14"/>
+        <Label Content="Số lượng tồn tối đa trước khi nhập: 300" Foreground="Red" HorizontalAlignment="Left" Margin="24,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.61,-0.006" FontFamily="Calibri" FontSize="14"/>
+        <Button x:Name="btnNhap" Content="Nhập" HorizontalAlignment="Left" Margin="351,74,0,0" VerticalAlignment="Top" Width="90" Click="btnNhap_Click" TabIndex="2" IsDefault="True"/>
+        <Label Content="Mã Sách:" HorizontalAlignment="Left" Margin="301,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ngày Nhập" HorizontalAlignment="Left" Margin="573,29,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbNgayNhap" HorizontalAlignment="Left" Height="25" Margin="650,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Danh sách các sách đã nhập:" HorizontalAlignment="Left" Margin="24,121,0,0" VerticalAlignment="Top"/>
+        
+        <materialDesign:Badged Margin="65,381,0,0" Width="110" Height="32" Badge="{Binding ElementName=dtgNhapSach, Path=Items.Count}">
+            <Button x:Name="btnHoanThanh" Content="Hoàn thành" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="110" Click="btnHoanThanh_Click"/>
+        </materialDesign:Badged>
+        <Button x:Name="btnNhapExcel" HorizontalAlignment="Left" Margin="441,381,0,0" VerticalAlignment="Top" Width="164" Click="btnNhapExcel_Click">
+            <Grid Width="164">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="28" />
+                    <ColumnDefinition Width="102" />
+                </Grid.ColumnDefinitions>
+                <Image Source="import1.png" Margin="-2,0,1,0"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Text=" Nhập từ Excel" Margin="7,2,-6,2" Width="102"/>
+            </Grid>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="530,381,0,0" Width="130" VerticalAlignment="Top" Visibility="Hidden">
+            <Grid Width="106">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="28" />
+                    <ColumnDefinition Width="102" />
+                </Grid.ColumnDefinitions>
+                <Image Source="C:\Users\User\Desktop\Code\Quan_Ly_Nha_Sach\Quan_Ly_Nha_Sach\pictures\export.png"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Text=" Xuất Excel"/>
+            </Grid>
+        </Button>
+        <TextBox x:Name="txbMaSach" HorizontalAlignment="Left" TextAlignment="Center" Height="25" Margin="368,30,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" TextChanged="txbMaSach_TextChanged"/>
+        <ListView x:Name="lsvMaSach" HorizontalAlignment="Left" Height="157" Margin="476,0,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="100" SelectionChanged="lsvMaSach_SelectionChanged" Background="#00000000" Foreground="Black" BorderBrush="#00000000">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>

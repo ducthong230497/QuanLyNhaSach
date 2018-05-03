@@ -1,0 +1,45 @@
+﻿<Window x:Class="LapPhieuNhapSach"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:GUI" 
+        
+        mc:Ignorable="d" Height="402.732" Width="764.81" FontSize="14" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Title="Nhập sách" IsTabStop="False" Loaded="Window_Loaded"
+         
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="#FFFAFAFA"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid Height="375" Margin="0,1,4,-2">
+        <Label Content="Số Lượng Nhập:" HorizontalAlignment="Left" Margin="24,74,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="txbSoLuongNhap" HorizontalAlignment="Left" Height="23" Margin="130,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" FontFamily="Calibri" FontSize="14"/>
+        <DataGrid x:Name="dtgNhapSach" CanUserAddRows="True" HorizontalAlignment="Left" Height="178" Margin="24,162,0,0" VerticalAlignment="Top" Width="721" RowDetailsVisibilityMode="Visible" AutoGenerateColumns="False" IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Binding="{Binding STT}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Mã Sách" Binding="{Binding MaSach}"/>
+                <DataGridTextColumn Header="Tên Sách" Width="100" Binding="{Binding TenSach}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Tác Giả" Width="120" Binding="{Binding TacGia}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Số Lượng Tồn Cũ" Binding="{Binding SoLuongTonCu}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Số Lượng Nhập" Binding="{Binding SoLuongNhap}"/>
+                <DataGridTextColumn Header="Số Lượng Tồn Mới" Binding="{Binding SoLuongTonMoi}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Số lượng nhập tối thiểu: 150" Foreground="Red" HorizontalAlignment="Left" Margin="485,82,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="14"/>
+        <Label Content="Số lượng tồn tối đa trước khi nhập: 300" Foreground="Red" HorizontalAlignment="Left" Margin="485,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.61,-0.006" FontFamily="Calibri" FontSize="14"/>
+        <Button x:Name="btnNhap" Visibility="Hidden" Content="Nhập" HorizontalAlignment="Left" Margin="276,77,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Mã Sách:" HorizontalAlignment="Left" Margin="24,25,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbMaSach"  TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="91,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <Label Content="Ngày Nhập" HorizontalAlignment="Left" Margin="251,29,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txbNgayNhap" HorizontalAlignment="Left" Height="23" Text="22.05.2017" Margin="328,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Danh sách các sách đã nhập:" HorizontalAlignment="Left" Margin="24,121,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
