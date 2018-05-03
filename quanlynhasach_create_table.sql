@@ -1,4 +1,5 @@
 create database quanlynhasach;
+use quanlynhasach;
 create table SACH
 (
 	MaSach char(10) not null,
@@ -149,7 +150,7 @@ create table CHITIETBAOCAOCONGNO
     NoCuoi decimal,
     foreign key(MaBaoCaoCongNo) references baocaocongno(MaBaoCaoCongNo),
     foreign key(MaKhachHang) references khachhang(MaKhachHang)
-)
+);
 drop table CHITIETBAOCAOCONGNO;
 drop table CHITIETBAOCAOTON;
 
